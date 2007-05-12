@@ -44,6 +44,9 @@ namespace Nachtigall
             /// Swaps string with rhs. Never throws.
             void Swap(String & rhs);
 
+            /// Convert String to std::wstring
+            std::wstring ToStdWString() const;
+
         private:
             struct Impl;
             scoped_ptr<Impl> pImpl_;

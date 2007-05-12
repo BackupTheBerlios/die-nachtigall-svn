@@ -28,7 +28,7 @@ namespace Nachtigall
             Impl(Impl const & rhs)
                 : data_(rhs.data_)
             {
-            };
+            };            
 
             std::wstring data_;
         };
@@ -69,5 +69,10 @@ namespace Nachtigall
         {
             pImpl_.swap(rhs.pImpl_);
         };        
+        
+        std::wstring String::ToStdWString() const
+        {
+            return pImpl_->data_;
+        };
     };
 };
