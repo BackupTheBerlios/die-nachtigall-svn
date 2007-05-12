@@ -25,7 +25,7 @@ namespace Nachtigall
             };
 
         private:
-            virtual void DoToUnicode(from, to);
+            virtual void DoToUnicode(std::string const & from, std::wstring & to);
         };
     };
 };
