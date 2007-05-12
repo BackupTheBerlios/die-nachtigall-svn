@@ -1,8 +1,6 @@
 #ifndef NACHTIGALL__COMMON__STRING_HPP
 #define NACHTIGALL__COMMON__STRING_HPP
 
-#include <string>
-
 #include <boost/shared_ptr.hpp>
 #include <boost/scoped_ptr.hpp>
 
@@ -44,10 +42,10 @@ namespace Nachtigall
             ~String() {};
 
             /// Swaps string with rhs. Never throws.
-            void Swap(String const & rhs);
+            void Swap(String & rhs);
 
         private:
-            class Impl;
+            struct Impl;
             scoped_ptr<Impl> pImpl_;
         };
     };
