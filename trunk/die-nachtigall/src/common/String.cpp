@@ -1,4 +1,5 @@
 #include <nachtigall/common/String.hpp>
+#include <nachtigall/common/abstract/IRecoder.hpp>
 
 #include <string>
 
@@ -8,11 +9,26 @@ namespace Nachtigall
     {
         struct String::Impl
         {
-            Impl();
+            Impl()
+                : data_() 
+            {
+            };
+
             explicit Impl(std::wstring const & str)
-                : data_(str) {};
-            Impl(std::string const & localString, shared_ptr<IRecoder> fromEncoding);
-            Impl(Impl const & rhs);
+                : data_(str) 
+            {
+            };
+
+            Impl(std::string const & localString, shared_ptr<IRecoder> fromEncoding)
+                : data_()
+            {
+                fromEncoding->ToUnicode(localString, data_);
+            };
+
+            Impl(Impl const & rhs)
+                : data_(rhs.data_)
+            {
+            };
 
             std::wstring data_;
         };
